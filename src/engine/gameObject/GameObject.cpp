@@ -4,4 +4,10 @@
 
 #include "GameObject.h"
 
-
+void GameObject::update(float dt)
+{
+    for (auto& component : components)
+    {
+        component->update(dt);
+    }
+}
