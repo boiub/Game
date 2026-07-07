@@ -35,15 +35,16 @@ See example below with extra comments
 #include "main.hpp"
 
 ## Naming Conventions
-| Item        | Naming      |
-|-------------|-------------|
-| Class       | PascalCase  |
-| Structs     | PascalCase  |
-| Functions   | camelCase   |
-| Variables   | camelCase   | 
-| Constants   | UPPER_CASE  |
-| Enums       | PascalCase  |
-| Enum Values | PascalCase  |
-| Namespaces  | lowercase   |
-| Files       | PascalCase  |
+| Item         | Naming     |
+|--------------|------------|
+| Class        | PascalCase |
+| Structs      | PascalCase |
+| Functions    | camelCase  |
+| Variables    | camelCase  | 
+| Constants    | UPPER_CASE |
+| Enums        | PascalCase |
+| Enum Values  | PascalCase |
+| Namespaces   | lowercase  |
+| Files        | PascalCase |
+| Directories  | camelCase  |
 
