@@ -77,6 +77,8 @@ int main()
         auto currentWriteTime = std::filesystem::last_write_time(gameLibPath);
         if (currentWriteTime != lastWriteTime)
         {
+            std::cout << "Reloading Game library... " << std::flush;
+
             lastWriteTime = currentWriteTime;
 
             UnloadDynamicLibrary(lib);
@@ -84,6 +86,8 @@ int main()
 
             Init = (void(*)(GameState *))GetSymbol(lib, "GameInit");
             Update = (void(*)(GameState *))GetSymbol(lib, "GameUpdate");
+
+            std::cout << "DONE!" << std::endl;
         }
 
         float dt = GetFrameTime();

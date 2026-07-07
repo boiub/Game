@@ -39,3 +39,5 @@ add_custom_command(TARGET GameLib POST_BUILD
     $<TARGET_FILE:GameLib>
     $<TARGET_FILE_DIR:Game>
 )
+
+add_dependencies(Game GameLib)
