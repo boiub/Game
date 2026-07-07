@@ -69,6 +69,16 @@ static inline Vector3& operator*=(Vector3& a, float s)
     return a;
 }
 
+float Dot(Vector3 a, Vector3 b)
+{
+    return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
+float LengthSq(Vector3 v)
+{
+    return Dot(v, v);
+}
+
 // Vector2
 
 static inline Vector2 operator+(Vector2 a, Vector2 b)
@@ -128,6 +138,16 @@ static inline Vector2& operator*=(Vector2& a, float s)
     a.y *= s;
 
     return a;
+}
+
+float Dot(Vector2 a, Vector2 b)
+{
+    return a.x * b.x + a.y * b.y;
+}
+
+float LengthSq(Vector2 v)
+{
+    return Dot(v, v);
 }
 
 #endif //GAME_MATH_H
