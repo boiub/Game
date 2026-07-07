@@ -21,4 +21,21 @@ add_executable(Game
         src/main.cpp
         src/main.h)
 
-target_link_libraries(Game PRIVATE raylib)
+target_link_libraries(Game raylib)
+
+add_library(GameLib SHARED
+    src/game.cpp
+)
+
+target_link_libraries(GameLib raylib)
+
+set_target_properties(GameLib PROPERTIES
+    PREFIX ""
+    OUTPUT_NAME "Game"
+)
+
+add_custom_command(TARGET GameLib POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+    $<TARGET_FILE:GameLib>
+    $<TARGET_FILE_DIR:Game>
+)
