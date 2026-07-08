@@ -28,6 +28,8 @@ add_executable(Game
         src/engine/main/scene/Scene.h
         src/engine/gameObject/GameObject.cpp
         src/engine/gameObject/Component.cpp
-        src/engine/gameObject/components/TransformComponent.h)
+        src/engine/gameObject/components/TransformComponent.h
+        src/engine/gameObject/components/RenderableComponent.cpp
+        src/engine/gameObject/components/RenderableComponent.h)
 
 target_link_libraries(Game PRIVATE raylib)

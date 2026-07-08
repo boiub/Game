@@ -5,6 +5,7 @@
 
 
 #include "Renderer.h"
+#include "engine/gameObject/components/RenderableComponent.h"
 
 void Renderer::initializeRenderer(int renX, int renY)
 {
@@ -17,4 +18,9 @@ void Renderer::render()
     BeginDrawing();
 
     EndDrawing();
+}
+
+void Renderer::requestRenderable(RenderableComponent& renderableComponent)
+{
+
 }

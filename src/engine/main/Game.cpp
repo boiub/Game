@@ -23,19 +23,13 @@ void Game::init()
 
 void Game::loop()
 {
-    while (running)
+    while (running && !WindowShouldClose())
     {
-        if (WindowShouldClose())
-        {
-            running = false;
-            continue;
-        }
-
         float deltaTime = GetFrameTime();
 
         update(deltaTime);
 
-        renderer.render();
+        draw();
 
     }
 
@@ -45,10 +39,9 @@ void Game::loop()
 void Game::update(float deltaTime)
 {
     scene.update(deltaTime);
-    std::cout << deltaTime << std::endl;
 }
 
 void Game::draw()
 {
-    return;
+    renderer.render();
 }

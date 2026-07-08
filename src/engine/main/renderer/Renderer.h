@@ -8,12 +8,15 @@
 #include <cmath>
 
 #include "raylib.h"
+#include "engine/gameObject/components/RenderableComponent.h"
 
 class Renderer
 {
 public:
     void initializeRenderer(int resX, int resY);
     void render();
+
+    void requestRenderable(RenderableComponent& renderableComponent);
 
 private:
     Vector2 ProjectPoint(Vector3 p, float angle) { return {p.x, cosf(angle) * p.y - sinf(angle) * p.z}; }
