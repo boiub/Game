@@ -17,8 +17,16 @@ public:
     void update(float dt);
     void draw();
 
-    GameObject&  createGameObject();
+
+    /*
+     * loadScene() kräver att vi har ett sätt att ladda in en scen på något sätt.
+     * Här ska alla GameObjects laddas in enligt filen och få sina komponenter.
+     * Viktigt att renderableComponent får en pointer till sin texture här.
+     */
+    void loadScene();
 private:
+    GameObject& createGameObject();
+
     std::vector<std::unique_ptr<GameObject>> gameObjects;
 };
 

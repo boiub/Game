@@ -21,7 +21,7 @@ void Scene::update(float dt)
     }
 }
 
-GameObject&  Scene::createGameObject()
+GameObject& Scene::createGameObject()
 {
     auto object = std::make_unique<GameObject>();
     GameObject& ref = *object;

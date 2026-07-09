@@ -30,6 +30,8 @@ add_executable(Game
         src/engine/gameObject/Component.cpp
         src/engine/gameObject/components/TransformComponent.h
         src/engine/gameObject/components/RenderableComponent.cpp
-        src/engine/gameObject/components/RenderableComponent.h)
+        src/engine/gameObject/components/RenderableComponent.h
+        src/engine/main/scene/AssetManager.cpp
+        src/engine/main/scene/AssetManager.h)
 
 target_link_libraries(Game PRIVATE raylib)
