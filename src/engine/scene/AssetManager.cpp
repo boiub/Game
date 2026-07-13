@@ -4,12 +4,10 @@
 
 #include "AssetManager.h"
 
-#include <memory>
-
 AssetManager::AssetManager()
 {
     assets = {
-        // Lägg in assets här manuellt i mappen
+        {AssetType::Test1, "../assets/test.png"}
     };
 }
 

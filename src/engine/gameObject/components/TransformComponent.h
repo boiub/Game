@@ -10,9 +10,11 @@
 #include "../Component.h"
 
 
-class TransformComponent : public Component
+class TransformComponent : public TypedComponent<TransformComponent>
 {
 public :
+    TransformComponent(Vector3 p, Vector3 r, Vector3 s) : position(p), rotation(r), scale(s) {};
+
     Vector3 position{0.f, 0.f, 0.f};
     Vector3 rotation{0.f, 0.f, 0.f};
     Vector3 scale{0.f, 0.f, 0.f};

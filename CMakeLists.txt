@@ -20,18 +20,20 @@ FetchContent_MakeAvailable(raylib)
 add_executable(Game
         src/main.cpp
         src/main.h
-        src/engine/main/Game.cpp
-        src/engine/main/Game.h
-        src/engine/main/renderer/Renderer.cpp
-        src/engine/main/renderer/Renderer.h
-        src/engine/main/scene/Scene.cpp
-        src/engine/main/scene/Scene.h
+        src/engine/Game.cpp
+        src/engine/Game.h
+        src/engine/renderer/Renderer.cpp
+        src/engine/renderer/Renderer.h
+        src/engine/scene/Scene.cpp
+        src/engine/scene/Scene.h
         src/engine/gameObject/GameObject.cpp
         src/engine/gameObject/Component.cpp
         src/engine/gameObject/components/TransformComponent.h
         src/engine/gameObject/components/RenderableComponent.cpp
         src/engine/gameObject/components/RenderableComponent.h
-        src/engine/main/scene/AssetManager.cpp
-        src/engine/main/scene/AssetManager.h)
+        src/engine/scene/AssetManager.cpp
+        src/engine/scene/AssetManager.h
+        src/engine/scene/scenes/Scenes.h
+        src/engine/scene/scenes/TestScene.cpp)
 
 target_link_libraries(Game PRIVATE raylib)

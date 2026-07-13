@@ -16,19 +16,35 @@ class GameObject
 {
 public:
 
-    template<typename T, typename... Args>
-    T& addComponent(Args&&... args)
+    template<typename T, typename... Args> T& addComponent(Args&&... args)
     {
-        // Prevent duplicate components
-        if (getComponent<T>() != nullptr)
+        if (getComponent<T>())
             throw std::runtime_error("Component already exists on GameObject.");
 
         auto component = std::make_unique<T>(std::forward<Args>(args)...);
+
         component->gameObject = this;
 
         T& ref = *component;
 
-        componentLookup[Component::getTypeID<T>()] = component.get();
+        componentLookup[component->getRuntimeTypeID()] = component.get();
+
+        components.push_back(std::move(component));
+
+        return ref;
+    }
+
+    Component& addComponent(std::unique_ptr<Component> component)
+    {
+        if (componentLookup.find(component->getRuntimeTypeID()) != componentLookup.end())
+            throw std::runtime_error("Component already exists on GameObject.");
+
+        component->gameObject = this;
+
+        Component& ref = *component;
+
+        componentLookup[component->getRuntimeTypeID()] = component.get();
+
         components.push_back(std::move(component));
 
         return ref;

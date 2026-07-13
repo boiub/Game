@@ -6,8 +6,6 @@
 
 #include "Game.h"
 
-#include <iostream>
-#include <ostream>
 
 void Game::run()
 {
@@ -19,6 +17,7 @@ void Game::run()
 void Game::init()
 {
     renderer.initializeRenderer(1080, 720);
+    scene.loadScene(SceneID::Test);
 }
 
 void Game::loop()
@@ -43,5 +42,6 @@ void Game::update(float deltaTime)
 
 void Game::draw()
 {
+    scene.draw(renderer);
     renderer.render();
 }

@@ -18,10 +18,18 @@ public:
 
     virtual void update(float dt) {}
 
-    template<typename T> static size_t getTypeID()
+    [[nodiscard]] virtual size_t getRuntimeTypeID() const = 0;
+
+    template<typename T>
+    static size_t getTypeID()
     {
         static const size_t typeID = nextTypeID++;
         return typeID;
+    }
+
+    GameObject* getGameObject()
+    {
+        return gameObject;
     }
 
 protected:
@@ -29,6 +37,16 @@ protected:
 
 private:
     inline static size_t nextTypeID = 0;
+};
+
+template<typename T>
+class TypedComponent : public Component
+{
+public:
+    size_t getRuntimeTypeID() const override
+    {
+        return Component::getTypeID<T>();
+    }
 };
 
 #endif //GAME_COMPONENT_H

@@ -7,17 +7,19 @@
 #include <cassert>
 
 #include "engine/gameObject/GameObject.h"
-#include "engine/main/renderer/Renderer.h"
+#include "engine/renderer/Renderer.h"
 #include "TransformComponent.h"
 
-RenderableComponent::RenderableComponent()
+#include "engine/renderer/Renderer.h"
+
+RenderableComponent::RenderableComponent(Texture2D &t)
 {
     // Make sure the object has a TransformComponent before adding this Renderable
-    assert(gameObject->getComponent<TransformComponent>() != nullptr);
+    texture = &t;
 }
 
 void RenderableComponent::draw(Renderer& renderer)
 {
-    renderer.requestRenderable(*this);
+    renderer.requestRenderable(*this, LayerID::Debug1);
 }
 

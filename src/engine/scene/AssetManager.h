@@ -9,7 +9,7 @@
 
 #include "raylib.h"
 
-enum AssetType
+enum class AssetType
 {
     Test1
 };

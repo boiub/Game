@@ -8,23 +8,20 @@
 #include "raylib.h"
 
 #include "engine/gameObject/Component.h"
-#include "engine/main/scene/AssetManager.h"
 
 
 class Renderer;
 
-class TransformComponent;
-
-class RenderableComponent : public Component
+class RenderableComponent : public TypedComponent<RenderableComponent>
 {
 public:
-    RenderableComponent();
+    explicit RenderableComponent(Texture2D &t);
     void draw(Renderer& renderer);
 
-    void setAssetType(AssetType type) { assetType = type; }
     void setTexture(Texture2D &t) { texture = &t; }
+    Texture2D* getTexture() const { return texture; }
+
 private:
-    AssetType assetType;
     Texture2D* texture;
 };
 
