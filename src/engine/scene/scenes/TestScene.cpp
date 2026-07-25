@@ -6,12 +6,25 @@
 #include <vector>
 
 #include "Scenes.h"
+#include "engine/gameObject/components/PlayerControlComponent.h"
+#include "engine/scene/Scene.h"
+
+void createPlayer(AssetManager& assets, SceneData& scene);
 
 
 SceneData createTestScene(AssetManager& assets)
 {
     SceneData scene;
 
+    createPlayer(assets, scene);
+
+
+    return scene;
+}
+
+
+void createPlayer(AssetManager& assets, SceneData& scene)
+{
     GameObjectData object;
 
     object.components.push_back(
@@ -19,16 +32,18 @@ SceneData createTestScene(AssetManager& assets)
             Vector3{20, 20, 0},
             Vector3{0, 0, 0},
             Vector3{1, 1, 1}
-        )
-    );
+            )
+        );
 
     object.components.push_back(
         std::make_unique<RenderableComponent>(
             *assets.loadAsset(AssetType::Test1)
-        )
-    );
+            )
+        );
+
+    object.components.push_back(
+        std::make_unique<PlayerControlComponent>()
+        );
 
     scene.gameObjects.push_back(std::move(object));
-
-    return scene;
 }

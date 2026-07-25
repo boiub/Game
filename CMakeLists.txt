@@ -27,13 +27,14 @@ add_executable(Game
         src/engine/scene/Scene.cpp
         src/engine/scene/Scene.h
         src/engine/gameObject/GameObject.cpp
-        src/engine/gameObject/Component.cpp
         src/engine/gameObject/components/TransformComponent.h
         src/engine/gameObject/components/RenderableComponent.cpp
         src/engine/gameObject/components/RenderableComponent.h
         src/engine/scene/AssetManager.cpp
         src/engine/scene/AssetManager.h
         src/engine/scene/scenes/Scenes.h
-        src/engine/scene/scenes/TestScene.cpp)
+        src/engine/scene/scenes/TestScene.cpp
+        src/engine/gameObject/components/PlayerControlComponent.cpp
+        src/engine/gameObject/components/PlayerControlComponent.h)
 
 target_link_libraries(Game PRIVATE raylib)

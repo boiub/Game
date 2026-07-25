@@ -39,7 +39,6 @@ void Renderer::render()
 
 void Renderer::requestRenderable(RenderableComponent& renderableComponent, LayerID layerID)
 {
-    printf("hello");
     renderMap[layerID].emplace_back(
         renderableComponent.getTexture(),
         ProjectPoint(
