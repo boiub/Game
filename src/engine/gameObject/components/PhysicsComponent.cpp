@@ -10,7 +10,7 @@
 
 PhysicsComponent::PhysicsComponent()
 {
-    assert(gameObject->getComponent<TransformComponent>());
+
 }
 
 AABB PhysicsComponent::GetBoundsAt(Vector3 position)

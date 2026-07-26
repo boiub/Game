@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "Scenes.h"
+#include "engine/gameObject/components/PhysicsComponent.h"
 #include "engine/gameObject/components/PlayerControlComponent.h"
 #include "engine/scene/Scene.h"
 
@@ -43,6 +44,10 @@ void createPlayer(AssetManager& assets, SceneData& scene)
 
     object.components.push_back(
         std::make_unique<PlayerControlComponent>()
+        );
+
+    object.components.push_back(
+        std::make_unique<PhysicsComponent>()
         );
 
     scene.gameObjects.push_back(std::move(object));
