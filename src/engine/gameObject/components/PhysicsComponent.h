@@ -4,6 +4,7 @@
 #include <algorithm>
 
 #include "raylib.h"
+#include "raymath.h"
 
 #include "engine/gameObject/Component.h"
 #include "game_math.h"

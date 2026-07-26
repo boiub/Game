@@ -83,8 +83,7 @@ void PhysicsComponent::doPhysicsStep(float dt, Vector3 acceleration)
     // TODO(Michael): We need some reliable way to query close physics objects. To begin with we could just return every object with a physics component, but ideally we store what references to objects that are in each eg. 1m x 1m x 1m cube in the world, then we can pull objects that are only in the cubes we overlap. If the world is dense we could probably have a 3D array of these cubes, otherwise if the world is more sprawling cubes are stored in a hashmap by hashing the cube's position (Spatial Hash)
     std::vector<PhysicsComponent *> candidates = GetOverlappingObjects(movementBounds);
 
-    const int MAX_ITERATIONS = 4;
-    const float EPSILON = 0.0001f;
+    constexpr int MAX_ITERATIONS = 4;
 
     for (int i = 0; i < MAX_ITERATIONS; i++)
     {

@@ -12,6 +12,8 @@
 
 #include "Component.h"
 
+class Scene;
+
 class GameObject
 {
 public:
@@ -62,6 +64,8 @@ public:
     }
 
     void update(float dt);
+
+    Scene* scene;
 
 private:
     std::vector<std::unique_ptr<Component>> components;

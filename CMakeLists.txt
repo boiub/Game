@@ -37,6 +37,7 @@ add_executable(Game
         src/engine/gameObject/components/PlayerControlComponent.cpp
         src/engine/gameObject/components/PlayerControlComponent.h
         src/engine/gameObject/components/PhysicsComponent.cpp
-        src/engine/gameObject/components/PhysicsComponent.h)
+        src/engine/gameObject/components/PhysicsComponent.h
+        src/game_math.h)
 
 target_link_libraries(Game PRIVATE raylib)

@@ -4,41 +4,19 @@
 
 #include "PlayerControlComponent.h"
 
-#include <algorithm>
-#include <cmath>
-
 #include "raylib.h"
-#include "TransformComponent.h"
 #include "engine/gameObject/GameObject.h"
+#include "engine/gameObject/components/PhysicsComponent.h"
 
 void PlayerControlComponent::update(float dt)
 {
     constexpr float FORCE = 8.f;
 
-    if (IsKeyDown(KEY_W)) velocity.y -= FORCE;
-    if (IsKeyDown(KEY_S)) velocity.y += FORCE;
-    if (IsKeyDown(KEY_A)) velocity.x -= FORCE;
-    if (IsKeyDown(KEY_D)) {velocity.x += FORCE; printf("whw");}
+    auto pc = gameObject->getComponent<PhysicsComponent>();
 
+    if (IsKeyDown(KEY_W)) pc->addForce({0.f, -FORCE, 0.f});
+    if (IsKeyDown(KEY_S)) pc->addForce({0.f, FORCE, 0.f});
+    if (IsKeyDown(KEY_A)) pc->addForce({-FORCE, 0.f, 0.f});
+    if (IsKeyDown(KEY_D)) pc->addForce({FORCE, 0.f, 0.f});
 
-
-    if (IsKeyUp(KEY_W) && IsKeyUp(KEY_S))
-    {
-        if (velocity.y > 0)
-            velocity.y = std::max(0.0f, velocity.y - FORCE * 1.5f);
-        else
-            velocity.y = std::min(0.0f, velocity.y + FORCE * 1.5f);
-    }
-
-    if (IsKeyUp(KEY_A) && IsKeyUp(KEY_D))
-    {
-        if (velocity.x > 0)
-            velocity.x = std::max(0.0f, velocity.x - FORCE * 1.5f);
-        else
-            velocity.x = std::min(0.0f, velocity.x + FORCE * 1.5f);
-    }
-
-    velocity = clampedVelocity(velocity);
-
-    gameObject->getComponent<TransformComponent>()->position += velocity * dt;
 }

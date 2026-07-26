@@ -14,6 +14,7 @@ void Scene::loadScene(SceneID id)
     for (auto& d : gameObjects)
     {
         GameObject& obj = createGameObject();
+        obj.scene = this;
         for (auto& c : d.components)
             obj.addComponent(std::move(c));
     }

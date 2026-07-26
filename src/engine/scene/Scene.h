@@ -31,10 +31,11 @@ public:
     void draw(Renderer& renderer) const;
 
     void loadScene(SceneID id);
-private:
-    GameObject& createGameObject();
 
     std::vector<std::unique_ptr<GameObject>> gameObjects;
+
+private:
+    GameObject& createGameObject();
 
     AssetManager assets;
 };
