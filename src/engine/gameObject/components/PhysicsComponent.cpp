@@ -47,9 +47,7 @@ void PhysicsComponent::update(float dt)
 {
     accelerationForFrame -= velocity * frictionCoefficient;
 
-    if (accelerationForFrame.x != 0 ||
-        accelerationForFrame.y != 0 ||
-        accelerationForFrame.z != 0)
+    if (LengthSq(accelerationForFrame) > EPSILON || LengthSq(velocity) > EPSILON)
     {
         doPhysicsStep(dt, accelerationForFrame);
     }
