@@ -17,6 +17,11 @@ void Scene::loadScene(SceneID id)
         obj.scene = this;
         for (auto& c : d.components)
             obj.addComponent(std::move(c));
+
+        for (auto& c : obj.components)
+        {
+            c->init();
+        }
     }
 }
 

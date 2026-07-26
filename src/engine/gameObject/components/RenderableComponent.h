@@ -16,6 +16,8 @@ class RenderableComponent : public TypedComponent<RenderableComponent>
 {
 public:
     explicit RenderableComponent(Texture2D &t);
+
+    void init() override;
     void draw(Renderer& renderer);
 
     void setTexture(Texture2D &t) { texture = &t; }

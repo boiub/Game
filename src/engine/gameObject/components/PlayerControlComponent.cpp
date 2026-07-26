@@ -20,3 +20,8 @@ void PlayerControlComponent::update(float dt)
     if (IsKeyDown(KEY_D)) pc->addForce({FORCE, 0.f, 0.f});
 
 }
+
+void PlayerControlComponent::init()
+{
+    gameObject->requireComponent<PhysicsComponent>();
+}

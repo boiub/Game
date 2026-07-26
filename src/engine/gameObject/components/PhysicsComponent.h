@@ -54,6 +54,8 @@ public:
 
     AABB GetBoundsAt(Vector3 position);
     AABB GetBounds();
+
+    void init() override;
     void update(float dt) override;
     void addForce(Vector3 f);
 private:

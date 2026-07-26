@@ -12,6 +12,7 @@ class PlayerControlComponent : public TypedComponent<PlayerControlComponent>
 public:
     explicit PlayerControlComponent() = default;
 
+    void init() override;
     void update(float dt) override;
 };
 

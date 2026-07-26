@@ -14,8 +14,12 @@
 
 RenderableComponent::RenderableComponent(Texture2D &t)
 {
-    // Make sure the object has a TransformComponent before adding this Renderable
     texture = &t;
+}
+
+void RenderableComponent::init()
+{
+    gameObject->requireComponent<TransformComponent>();
 }
 
 void RenderableComponent::draw(Renderer& renderer)

@@ -13,6 +13,11 @@ PhysicsComponent::PhysicsComponent()
 
 }
 
+void PhysicsComponent::init()
+{
+    gameObject->requireComponent<TransformComponent>();
+}
+
 AABB PhysicsComponent::GetBoundsAt(Vector3 position)
 {
     AABB bounds;

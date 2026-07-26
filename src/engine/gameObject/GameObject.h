@@ -52,8 +52,7 @@ public:
         return ref;
     }
 
-    template<typename T>
-    T* getComponent()
+    template<typename T> T* getComponent()
     {
         auto it = componentLookup.find(Component::getTypeID<T>());
 
@@ -63,12 +62,19 @@ public:
         return static_cast<T*>(it->second);
     }
 
+    template<typename T> void requireComponent()
+    {
+        static_assert(std::is_base_of_v<Component, T>, "T must derive from Component");
+
+        assert(getComponent<T>() != nullptr && "Required component does not exist.");
+    }
+
     void update(float dt);
 
     Scene* scene;
-
-private:
     std::vector<std::unique_ptr<Component>> components;
+private:
+
     std::unordered_map<size_t, Component*> componentLookup;
 };
 

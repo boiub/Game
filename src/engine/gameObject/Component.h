@@ -5,6 +5,7 @@
 #ifndef GAME_COMPONENT_H
 #define GAME_COMPONENT_H
 
+#include <cassert>
 #include <cstddef>
 
 class GameObject;
@@ -17,6 +18,8 @@ public:
     virtual ~Component() = default;
 
     virtual void update(float dt) {}
+    virtual void init() {}
+
 
     [[nodiscard]] virtual size_t getRuntimeTypeID() const = 0;
 
@@ -36,6 +39,7 @@ protected:
     GameObject* gameObject = nullptr;
 
 private:
+
     inline static size_t nextTypeID = 0;
 };
 
