@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "Component.h"
+#include "Logger.h"
 
 class Scene;
 
@@ -66,7 +67,7 @@ public:
     {
         static_assert(std::is_base_of_v<Component, T>, "T must derive from Component");
 
-        assert(getComponent<T>() != nullptr && "Required component does not exist.");
+        if (!getComponent<T>()) LOG_FATAL("Required component does not exist");
     }
 
     void update(float dt);

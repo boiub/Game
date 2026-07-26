@@ -4,13 +4,15 @@
 
 #ifndef GAME_PLAYERCONTROLCOMPONENT_H
 #define GAME_PLAYERCONTROLCOMPONENT_H
+
+#include "Logger.h"
 #include "engine/gameObject/Component.h"
 
 
 class PlayerControlComponent : public TypedComponent<PlayerControlComponent>
 {
 public:
-    explicit PlayerControlComponent() = default;
+    explicit PlayerControlComponent() { LOG_INFO("Loaded PlayerControlComponent"); };
 
     void init() override;
     void update(float dt) override;

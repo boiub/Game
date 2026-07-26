@@ -12,8 +12,18 @@
 
 void Renderer::initializeRenderer(int renX, int renY)
 {
+    LOG_INFO("Initializing renderer.");
+
     InitWindow(renX, renY, "FUCKYEAH");
+
+    if (!IsWindowReady())
+    {
+        LOG_FATAL("Failed to initialize renderer window.");
+    }
+
     SetTargetFPS(60);
+
+    LOG_INFO("Renderer initialized successfully.");
 }
 
 void Renderer::render()

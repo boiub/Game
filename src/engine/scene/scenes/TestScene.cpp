@@ -10,21 +10,23 @@
 #include "engine/gameObject/components/PlayerControlComponent.h"
 #include "engine/scene/Scene.h"
 
-void createPlayer(AssetManager& assets, SceneData& scene);
+void createObject1(AssetManager& assets, SceneData& scene);
 
 
 SceneData createTestScene(AssetManager& assets)
 {
+    LOG_INFO("Creating test scene");
+
     SceneData scene;
 
-    createPlayer(assets, scene);
+    createObject1(assets, scene);
 
 
     return scene;
 }
 
 
-void createPlayer(AssetManager& assets, SceneData& scene)
+void createObject1(AssetManager& assets, SceneData& scene)
 {
     GameObjectData object;
 

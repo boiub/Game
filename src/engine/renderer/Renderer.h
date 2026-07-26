@@ -17,7 +17,7 @@
 
 /*
  * LayerID is used to identify the order in which a renderable components texture will be drawn with enums with lower
- * value will be drawn first, aka lowest priority. Components with the same LayerID will be drawn in an arbitrary order
+ * value will be drawn first, aka the lowest priority. Components with the same LayerID will be drawn in an arbitrary order
  * based on which object sent the request first.
  */
 enum class LayerID

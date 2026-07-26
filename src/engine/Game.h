@@ -21,10 +21,13 @@ private:
     void update(float dt);
     void draw();
 
+    void initPlayer();
+
     bool running = true;
 
     Scene scene;
     Renderer renderer;
+
 };
 
 

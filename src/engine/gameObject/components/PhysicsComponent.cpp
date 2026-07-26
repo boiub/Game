@@ -8,9 +8,11 @@
 
 #include "TransformComponent.h"
 
+#include "Logger.h"
+
 PhysicsComponent::PhysicsComponent()
 {
-
+    { LOG_INFO("Loaded PhysicsComponent"); }
 }
 
 void PhysicsComponent::init()

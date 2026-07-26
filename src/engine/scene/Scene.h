@@ -16,6 +16,16 @@ enum class SceneID
     Test,
 };
 
+static constexpr const char* SceneIDToString(SceneID id)
+{
+    switch (id)
+    {
+        case SceneID::Test: return "Test";
+    }
+
+    return nullptr;
+}
+
 using SceneFactory = SceneData (*)(AssetManager&);
 
 inline std::unordered_map<SceneID, SceneFactory> sceneMap =
@@ -31,12 +41,16 @@ public:
     void draw(Renderer& renderer) const;
 
     void loadScene(SceneID id);
+    void insertPlayer(std::unique_ptr<GameObject> player);
+    std::unique_ptr<GameObject> extractPlayer();
 
-    std::vector<std::unique_ptr<GameObject>> gameObjects;
+
+    [[nodiscard]] std::vector<std::unique_ptr<GameObject>> & game_objects() { return gameObjects; }
 
 private:
     GameObject& createGameObject();
 
+    std::vector<std::unique_ptr<GameObject>> gameObjects;
     AssetManager assets;
 };
 
